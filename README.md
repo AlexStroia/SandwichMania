@@ -1,4 +1,5 @@
 # SandwichMania
+Udacity Android Developer Nanodegree Project
 
 Beginner: Download the starter project files as .zip and extract the files to your desktop.
 
