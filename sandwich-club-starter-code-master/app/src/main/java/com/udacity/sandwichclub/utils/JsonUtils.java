@@ -27,17 +27,17 @@ public class JsonUtils {
         try {
             JSONObject mainJsonObject = new JSONObject(json);
 
-            JSONObject name = mainJsonObject.getJSONObject(NAME);
-            String mainName = name.getString(MAIN_NAME);
+            JSONObject name = mainJsonObject.optJSONObject(NAME);
+            String mainName = name.optString(MAIN_NAME);
 
-            JSONArray jsonArrayAlsoKnown = name.getJSONArray(ALSO_KNOWN_AS);
+            JSONArray jsonArrayAlsoKnown = name.optJSONArray(ALSO_KNOWN_AS);
             alsoKnownAs = parseJsonArray(jsonArrayAlsoKnown);
 
-            String placeOfOrigin = mainJsonObject.getString(PLACE_OF_ORIGIN);
-            String description = mainJsonObject.getString(DESCRIPTION);
-            String image = mainJsonObject.getString(IMAGE);
+            String placeOfOrigin = mainJsonObject.optString(PLACE_OF_ORIGIN);
+            String description = mainJsonObject.optString(DESCRIPTION);
+            String image = mainJsonObject.optString(IMAGE);
 
-            JSONArray jsonArrayingredients = mainJsonObject.getJSONArray(INGREDIENTS);
+            JSONArray jsonArrayingredients = mainJsonObject.optJSONArray(INGREDIENTS);
             ingredients = parseJsonArray(jsonArrayingredients);
             sandwich = new Sandwich(mainName, alsoKnownAs, placeOfOrigin, description, image, ingredients);
             return sandwich;
